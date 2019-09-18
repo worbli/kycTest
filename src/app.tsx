@@ -6,7 +6,7 @@ interface fileInterface {
 }
 
 const App: React.FC = () => {
-  const [state, setState] = useState({loading: false, country: '', firstName: '', middleInitial: '', lastName: '', dobDay: '', dobMonth: '', dobYear:'', email:'', phoneCode: '', phoneNumber: '', documentCountry: '', documentType: '', frontDoc: '', backDoc: '', selfie: ''});
+  const [state, setState] = useState({result: '', loading: false, country: '', firstName: '', middleInitial: '', lastName: '', dobDay: '', dobMonth: '', dobYear:'', email:'', phoneCode: '', phoneNumber: '', documentCountry: '', documentType: '', frontDoc: '', backDoc: '', selfie: ''});
   const formValue = (event: React.ChangeEvent<HTMLSelectElement | HTMLInputElement>) => {setState({...state, [event.target.name]: event.target.value.trim()})}
 
   const country = useRef<HTMLSelectElement>(null);
@@ -68,7 +68,7 @@ const App: React.FC = () => {
       })
     });
     const content = await response.json();
-    setState({...state, loading: false});
+    setState({...state, loading: false, result: content.result.res});
     console.log('-------------- API RESPONSE START--------------');
     console.log(content);
     console.log('-------------- API RESPONSE END--------------');
@@ -1036,9 +1036,9 @@ const App: React.FC = () => {
       </div>
 
       <div className='section-grid'>
-        <small>Check console for API response</small>
+        <small>Check console for API response!</small>
         <div className='btn-grid'>
-          <div></div>
+          <div>{state.result && 'Your result was ${state.result}'}</div>
           <button onClick={submitForm}>
           {!state.loading ? 'Submit Identity' : <img src={loading} alt="loading" className='loading'/>}
             
