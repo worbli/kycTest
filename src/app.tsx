@@ -51,7 +51,7 @@ const App: React.FC = () => {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        bco: country, 
+        bco: state.country, 
         bfn: state.firstName, 
         bmn: state.middleInitial, 
         bln: state.lastName, 
@@ -77,6 +77,8 @@ const App: React.FC = () => {
         <div>
           <label>Country</label>
           <select value={state.country} name="country" onChange={formValue} ref={country}>
+            <option value="">Country</option>
+            <option value="">---</option>
             <option value="US">United States</option>
             <option value="AF">Afghanistan</option>
             <option value="AX">Åland Islands</option>
@@ -535,6 +537,8 @@ const App: React.FC = () => {
         <div>
           <label>Document Issuing Country</label>
           <select value={state.documentCountry} name="documentCountry" onChange={formValue} ref={documentCountry}>
+          <option value="">Country</option>
+          <option value="">---</option>
           <option value="US">United States</option>
           <option value="AF">Afghanistan</option>
           <option value="AX">Åland Islands</option>
