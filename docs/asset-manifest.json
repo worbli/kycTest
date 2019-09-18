@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/kycTest/static/css/main.68c23e3d.chunk.css",
+    "main.js": "/kycTest/static/js/main.9a75fd4d.chunk.js",
+    "main.js.map": "/kycTest/static/js/main.9a75fd4d.chunk.js.map",
+    "runtime~main.js": "/kycTest/static/js/runtime~main.3d768f92.js",
+    "runtime~main.js.map": "/kycTest/static/js/runtime~main.3d768f92.js.map",
+    "static/js/2.e58a6f6a.chunk.js": "/kycTest/static/js/2.e58a6f6a.chunk.js",
+    "static/js/2.e58a6f6a.chunk.js.map": "/kycTest/static/js/2.e58a6f6a.chunk.js.map",
+    "index.html": "/kycTest/index.html",
+    "precache-manifest.66db19de39f7d5183d555f833628c57a.js": "/kycTest/precache-manifest.66db19de39f7d5183d555f833628c57a.js",
+    "service-worker.js": "/kycTest/service-worker.js",
+    "static/css/main.68c23e3d.chunk.css.map": "/kycTest/static/css/main.68c23e3d.chunk.css.map",
+    "static/media/index.scss": "/kycTest/static/media/chevron-down.6d833f1e.svg"
+  }
+}
