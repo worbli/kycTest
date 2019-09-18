@@ -35,48 +35,48 @@ html, body, #shell {
     border: 1px solid #DADADA;
     border-radius: 8px;
 
-    .layout-title {
-      border-bottom: 1px solid #DADADA;
-      font-weight: 800;
-      padding: 0 17px;
-      color: #4b4f5d;
-      font-size: 15px;
-      line-height: 48px;
-    }
-    .section-grid {
-      display: grid;
-      grid-template-columns: 200px 1fr;
-      grid-gap: 12px;
-      border-bottom: 1px solid #DADADA;
-      padding: 17px 17px 27px 17px;
+      .layout-title {
+        border-bottom: 1px solid #DADADA;
+        font-weight: 800;
+        padding: 0 17px;
+        color: #4b4f5d;
+        font-size: 15px;
+        line-height: 48px;
+      }
+      .section-grid {
+        display: grid;
+        grid-template-columns: 200px 1fr;
+        grid-gap: 12px;
+        border-bottom: 1px solid #DADADA;
+        padding: 17px 17px 27px 17px;
 
-    small {
-      display: block;
-      line-height: 18px;
-      color: #9da1ab;
-      padding: 9px 0 0;
-      margin: 0 0 -2px 0;
-      font-size: 12px;
-      font-weight: 500;
-    }
-button {
-    line-height: 31px;
-    height: 33px;
-    margin-left: 6px;
-    vertical-align: middle;
-    box-shadow: none;
-    font-size: 13px;
-    color: #fff;
-    border-color: #1e7efc;
-    background: #1e7efc;
-    display: inline-block;
-    border-radius: 5px;
-    font-weight: bold;
-    padding: 0 13px;
-    text-align: center;
-    width: 150px;
-    cursor: pointer;
-}
+      small {
+        display: block;
+        line-height: 18px;
+        color: #9da1ab;
+        padding: 9px 0 0;
+        margin: 0 0 -2px 0;
+        font-size: 12px;
+        font-weight: 500;
+      }
+      button {
+        line-height: 31px;
+        height: 33px;
+        margin-left: 6px;
+        vertical-align: middle;
+        box-shadow: none;
+        font-size: 13px;
+        color: #fff;
+        border-color: #1e7efc;
+        background: #1e7efc;
+        display: inline-block;
+        border-radius: 5px;
+        font-weight: bold;
+        padding: 0 13px;
+        text-align: center;
+        width: 150px;
+        cursor: pointer;
+      }
 
       label {
         display: block;
@@ -85,6 +85,7 @@ button {
         font-weight: bold;
         padding: 17px 0 7px;
       }
+
       input {
         width: 100%;
         -webkit-appearance: none;
@@ -101,6 +102,7 @@ button {
         font-weight: 500;
         resize: none;
       }
+
       select {
         width: 100%;
         margin-right: 6px;

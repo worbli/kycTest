@@ -69,7 +69,9 @@ const App: React.FC = () => {
     });
     const content = await response.json();
     setState({...state, loading: false});
-    console.log(content)
+    console.log('-------------- API RESPONSE START--------------');
+    console.log(content);
+    console.log('-------------- API RESPONSE END--------------');
   }
   return (
     <div className="layout-grid">
@@ -821,7 +823,7 @@ const App: React.FC = () => {
       </div>
 
       <div className='section-grid'>
-        <div></div>
+        <small>Check console for API response</small>
         <div className='btn-grid'>
           <div></div>
           <button onClick={submitForm}>
