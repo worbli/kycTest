@@ -1,11 +1,12 @@
 import React, {useState, useRef}  from 'react';
+import loading from './images/loading.svg';
 
 interface fileInterface {
   file: any,
 }
 
 const App: React.FC = () => {
-  const [state, setState] = useState({country: '', firstName: '', middleInitial: '', lastName: '', dobDay: '', dobMonth: '', dobYear:'', email:'', phoneCode: '', phoneNumber: '', documentCountry: '', documentType: '', frontDoc: '', backDoc: '', selfie: ''});
+  const [state, setState] = useState({loading: false, country: '', firstName: '', middleInitial: '', lastName: '', dobDay: '', dobMonth: '', dobYear:'', email:'', phoneCode: '', phoneNumber: '', documentCountry: '', documentType: '', frontDoc: '', backDoc: '', selfie: ''});
   const formValue = (event: React.ChangeEvent<HTMLSelectElement | HTMLInputElement>) => {setState({...state, [event.target.name]: event.target.value.trim()})}
 
   const country = useRef<HTMLSelectElement>(null);
@@ -44,6 +45,7 @@ const App: React.FC = () => {
     selfie = await toBase64(file);
   }
   const submitForm = async() => {
+    setState({...state, loading: true});
     const response = await fetch(`https://portal-api.dev.worbli.io/api/v3/kyc/idm`, {
       method: 'POST',
       headers: {
@@ -66,6 +68,7 @@ const App: React.FC = () => {
       })
     });
     const content = await response.json();
+    setState({...state, loading: false});
     console.log(content)
   }
   return (
@@ -821,7 +824,10 @@ const App: React.FC = () => {
         <div></div>
         <div className='btn-grid'>
           <div></div>
-          <button onClick={submitForm}>Submit Identity</button>
+          <button onClick={submitForm}>
+          {!state.loading ? 'Submit Identity' : <img src={loading} alt="loading" className='loading'/>}
+            
+            </button>
         </div>
       </div>
 

@@ -21,6 +21,9 @@ html, body, #shell {
   font-family: "Hanken Grotesk","Helvetica Neue",sans-serif;
   height: 100%;
 
+  .loading {
+    height: 10px;
+  }
   .layout-grid {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
@@ -71,6 +74,8 @@ button {
     font-weight: bold;
     padding: 0 13px;
     text-align: center;
+    width: 150px;
+    cursor: pointer;
 }
 
       label {
