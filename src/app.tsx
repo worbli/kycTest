@@ -20,9 +20,9 @@ const App: React.FC = () => {
   const phoneNumber = useRef<HTMLInputElement>(null);
   const documentCountry = useRef<HTMLSelectElement>(null);
   const documentType = useRef<HTMLSelectElement>(null);
-  let frontDoc;
-  let backDoc;
-  let selfie;
+  let frontDoc: any;
+  let backDoc: any;
+  let selfie: any;
 
   const toBase64 = (file: any) => new Promise((resolve, reject) => {
     const reader = new FileReader();
@@ -50,7 +50,20 @@ const App: React.FC = () => {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({tea: state.email, man: `${state.firstName} ${state.middleInitial} ${state.lastName}`})
+      body: JSON.stringify({
+        bco: country, 
+        bfn: state.firstName, 
+        bmn: state.middleInitial, 
+        bln: state.lastName, 
+        dob: `${state.dobDay}/${state.dobMonth}/${state.dobYear}`, 
+        tea: state.email, 
+        phn: `${state.phoneCode} ${state.phoneNumber}`, 
+        docCountry: state.documentCountry,
+        docType: state.documentType,
+        scanData: frontDoc,
+        backsideImageData: backDoc,
+        faceImages: [selfie]
+      })
     });
     const content = await response.json();
     console.log(content)
@@ -774,9 +787,11 @@ const App: React.FC = () => {
           </select>
           <label>Document type</label>
           <select value={state.documentType} name="documentType" onChange={formValue} ref={documentType}>
-            <option value="Passport">Passport</option>
-            <option value="Drivers Licence">Drivers Licence</option>
-            <option value="National Identity Document">National Identity Document</option>
+            <option value="PP">Passport</option>
+            <option value="DL">Drivers Licence</option>
+            <option value="ID">Government issued Identity Card</option>
+            <option value="RP">Residence Permit</option>
+            <option value="UB">Utility Bill</option>
           </select>
           <div className='doc-grid'>
             <label>Front of Document
