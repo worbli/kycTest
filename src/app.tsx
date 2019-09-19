@@ -45,6 +45,7 @@ const App: React.FC = () => {
     selfie = await toBase64(file);
   }
   const submitForm = async() => {
+    try {
     setState({...state, loading: true});
     const response = await fetch(`https://portal-api.dev.worbli.io/api/v3/kyc/idm`, {
       method: 'POST',
@@ -72,6 +73,12 @@ const App: React.FC = () => {
     console.log('-------------- API RESPONSE START--------------');
     console.log(content);
     console.log('-------------- API RESPONSE END--------------');
+  } catch (error) {
+    setState({...state, loading: false});
+    console.log('-------------- ERROR START--------------');
+    console.log(error);
+    console.log('-------------- ERROR END--------------');
+  }
   }
   return (
     <div className="layout-grid">
