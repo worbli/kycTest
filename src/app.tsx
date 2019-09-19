@@ -44,16 +44,35 @@ const App: React.FC = () => {
     const file = event.target.files[0];
     selfie = await toBase64(file);
   }
+
+  const makeId = (length: number) => {
+    var result = '';
+    var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    var charactersLength = characters.length;
+    for ( var i = 0; i < length; i++ ) {
+       result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+    return result;
+  }
   const submitForm = async() => {
+    let man: any;
+    man = localStorage.getItem('man');
+    if (!man) {
+      man = makeId(40);
+      localStorage.setItem('man',JSON.stringify(man));
+    }
     try {
     setState({...state, loading: true});
+    let headers = new Headers({
+      'Access-Control-Allow-Origin':'*',
+      'Content-Type': 'multipart/form-data',
+      'Accept': 'application/json',
+  });
     const response = await fetch(`https://portal-api.dev.worbli.io/api/v3/kyc/idm`, {
       method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
+      headers,
       body: JSON.stringify({
+        man,
         bco: state.country, 
         bfn: state.firstName, 
         bmn: state.middleInitial, 
